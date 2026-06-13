@@ -1,0 +1,40 @@
+<Page x:Class="SusanooLauncher.Pages.DownloadsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      mc:Ignorable="d"
+      Background="#FF0F1118">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="Transparent">
+        <StackPanel Margin="28,22,28,22" MaxWidth="980">
+            <Grid Margin="0,0,0,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Downloads" FontSize="26" FontWeight="SemiBold" Foreground="#F2FFFFFF" />
+                    <TextBlock Margin="0,6,0,0" Foreground="#CCFFFFFF"
+                               Text="Arc client from the game server; GFSDK_Aftermath_Lib.x64 from GitHub before launch." />
+                </StackPanel>
+                <ui:Button Grid.Column="1" Width="120" Height="36" Content="Refresh" Click="RefreshClicked" />
+            </Grid>
+
+            <Border CornerRadius="16" Background="#22000000" Padding="16" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Arc client" Foreground="#E6FFFFFF" />
+                    <TextBlock x:Name="ArcPathText" Margin="0,6,0,0" Foreground="#F2FFFFFF" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <Border CornerRadius="16" Background="#22000000" Padding="16">
+                <StackPanel>
+                    <TextBlock x:Name="SummaryText" Foreground="#CCFFFFFF" />
+                    <ListView x:Name="DownloadList" Margin="0,12,0,0" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

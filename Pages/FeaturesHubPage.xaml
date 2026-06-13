@@ -1,0 +1,14 @@
+<Page x:Class="SusanooLauncher.Pages.FeaturesHubPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="28,22,28,22">
+        <StackPanel MaxWidth="980">
+            <TextBlock Text="All Features" FontSize="26" FontWeight="SemiBold" Foreground="#F2FFFFFF" />
+            <TextBlock Margin="0,6,0,16" Foreground="#99FFFFFF" FontSize="13" TextWrapping="Wrap"
+                       Text="76 launcher features — Live items open their page. Planned items are on the roadmap." />
+            <StackPanel x:Name="FeatureCategoriesPanel" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

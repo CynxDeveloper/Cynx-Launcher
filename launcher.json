@@ -1,0 +1,26 @@
+{
+  "MongoConnectionString": "mongodb://26.157.83.30:27017",
+  "MongoDatabase": "Susanoo",
+  "MongoCollection": "tournament_standings",
+  "ArenaEventId": "epicgames_Arena_S24_Solo",
+  "LeaderboardApiUrl": "",
+  "UseMongoDirect": false,
+  "LeaderboardRefreshSeconds": 3600,
+  "Update": {
+    "CheckOnLogin": true,
+    "GitHubOwner": "CynxDEV-OGFN",
+    "GitHubRepo": "Susanoo-Launcher",
+    "AssetFileName": "setup.exe",
+    "Version": "1.0.0"
+  },
+  "DiscordRichPresence": {
+    "Enabled": true,
+    "ApplicationId": "1505109402464681984",
+    "Details": "Susanoo",
+    "State": "An OG Fortnite Experience.",
+    "LargeImageKey": "susanoo",
+    "LargeImageText": "Susanoo Launcher",
+    "SmallImageKey": "character",
+    "SmallImageText": ""
+  }
+}

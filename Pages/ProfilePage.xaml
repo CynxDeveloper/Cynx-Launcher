@@ -1,0 +1,29 @@
+<Page x:Class="SusanooLauncher.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:SusanooLauncher.Controls"
+      Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="28,22,28,22">
+        <StackPanel MaxWidth="640">
+            <TextBlock Text="Profile" FontSize="26" FontWeight="SemiBold" Foreground="#F2FFFFFF" />
+            <Border Margin="0,16,0,0" CornerRadius="18" Background="#22000000" Padding="24">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:CircularSkinAvatar x:Name="SkinAvatar" Diameter="88" />
+                    <StackPanel Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
+                        <TextBlock x:Name="NameText" FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFFFF" />
+                        <TextBlock x:Name="EmailText" Margin="0,6,0,0" Foreground="#CCFFFFFF" />
+                        <TextBlock x:Name="AccountIdText" Margin="0,4,0,0" Foreground="#88FFFFFF" FontSize="12" />
+                        <TextBlock x:Name="VbucksText" Margin="0,12,0,0" FontSize="16" Foreground="#FF8EC5FF" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <ui:Button Content="View Stats" Margin="0,14,0,0" Height="38" HorizontalAlignment="Left" Click="StatsClicked" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

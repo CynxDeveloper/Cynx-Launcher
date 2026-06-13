@@ -1,0 +1,28 @@
+<Page x:Class="SusanooLauncher.Pages.FriendsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      Background="Transparent">
+
+    <Grid Margin="28,22,28,22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Friends" FontSize="26" FontWeight="SemiBold" Foreground="#F2FFFFFF" />
+            <ui:Button Content="Refresh" Margin="16,0,0,0" Height="32" Click="RefreshClicked" Appearance="Secondary" />
+        </StackPanel>
+
+        <Border Grid.Row="1" Margin="0,16,0,0" CornerRadius="16" Background="#22000000" Padding="8">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="FriendsList" />
+            </ScrollViewer>
+        </Border>
+
+        <TextBlock Grid.Row="1" x:Name="EmptyText" Visibility="Collapsed"
+                   Text="No friends yet. Add friends in-game."
+                   Foreground="#66FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
+</Page>

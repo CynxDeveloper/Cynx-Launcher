@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:FluentWindow
+    x:Class="SusanooLauncher.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:controls="clr-namespace:SusanooLauncher.Controls"
+    Height="720"
+    Width="1080"
+    MinHeight="640"
+    MinWidth="960"
+    ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
+    WindowCornerPreference="Round"
+    WindowStartupLocation="CenterScreen"
+    Title="Susanoo Launcher"
+    Background="#FF0F1118"
+    mc:Ignorable="d">
+
+    <Grid>
+        <controls:LiveBackground x:Name="LiveBg" Panel.ZIndex="0"
+                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+        <controls:SyncOverlay x:Name="SyncOverlay" Panel.ZIndex="2" />
+
+        <Grid Panel.ZIndex="1">
+        <ui:TitleBar Title="Susanoo Launcher" Height="36" VerticalAlignment="Top" Background="#00000000" />
+
+        <Grid Margin="0,36,0,0">
+            <Grid x:Name="LoginRoot">
+                <Frame x:Name="LoginFrame" NavigationUIVisibility="Hidden" Background="Transparent" />
+            </Grid>
+
+            <Grid x:Name="ShellRoot" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="72" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="#CC141824" BorderBrush="#FF1E2433" BorderThickness="0,0,1,0">
+                    <Grid Margin="0,12,0,12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Border Width="44" Height="44" CornerRadius="12" Margin="0,4,0,20" HorizontalAlignment="Center" Background="Transparent" ClipToBounds="True">
+                            <Image Source="pack://application:,,,/Assets/susanoo.png" Stretch="Uniform" />
+                        </Border>
+
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                            <ui:Button x:Name="HomeBtn" Click="HomeClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Home" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Play24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="LibraryBtn" Click="LibraryClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Library" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Folder24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="ShopBtn" Click="ShopClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Item Shop" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Cart24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="LeaderboardBtn" Click="LeaderboardClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Leaderboard" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="DataBarVertical24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="ServersBtn" Click="ServersClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Servers" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Globe24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="ChatBtn" Click="ChatClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Global Chat" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Chat24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="NewsBtn" Visibility="Collapsed" Click="NewsClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="News" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="News24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="FeaturesBtn" Visibility="Collapsed" Click="FeaturesClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="All Features" Appearance="Secondary" Background="Transparent" BorderThickness="0">
+                                <ui:SymbolIcon Symbol="Apps24" FontSize="22" />
+                            </ui:Button>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                            <ui:Button x:Name="ProfileBtn" Click="ProfileClicked" Width="48" Height="48" Padding="0" Margin="0,0,0,8"
+                                       ToolTip="Profile" Appearance="Secondary" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center">
+                                <ui:SymbolIcon Symbol="Person24" FontSize="22" />
+                            </ui:Button>
+                            <ui:Button x:Name="SettingsBtn" Click="SettingsClicked" Width="48" Height="48" Padding="0"
+                                       ToolTip="Settings" Appearance="Secondary" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center">
+                                <ui:SymbolIcon Symbol="Settings24" FontSize="22" />
+                            </ui:Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1" Background="Transparent">
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Background="Transparent" />
+                </Border>
+            </Grid>
+        </Grid>
+        </Grid>
+    </Grid>
+</ui:FluentWindow>

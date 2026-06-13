@@ -1,0 +1,62 @@
+<ui:FluentWindow
+    x:Class="SusanooLauncher.Windows.SuspiciousActivityWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="AntiCheat"
+    Width="420"
+    SizeToContent="Height"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    ShowInTaskbar="True"
+    Topmost="True"
+    Background="#E60A0A0C"
+    WindowStyle="SingleBorderWindow">
+
+    <Border Margin="24" Padding="28,32,28,28"
+            Background="#CC12141C"
+            CornerRadius="16"
+            BorderBrush="#33FFFFFF"
+            BorderThickness="1">
+        <StackPanel>
+            <Border Width="56" Height="56" CornerRadius="28" HorizontalAlignment="Center"
+                    Background="#33B91C1C" BorderBrush="#55E53935" BorderThickness="1">
+                <ui:SymbolIcon Symbol="ShieldTask24" FontSize="28" Foreground="#FFE85D5D"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+
+            <TextBlock Margin="0,20,0,0" Text="Suspicious Activity Detected"
+                       FontSize="22" FontWeight="Bold" Foreground="#FFFFFFFF"
+                       TextAlignment="Center" TextWrapping="Wrap" />
+
+            <TextBlock Margin="0,14,0,0" TextWrapping="Wrap" TextAlignment="Center"
+                       FontSize="13" Foreground="#CCFFFFFF" LineHeight="20">
+                Injector or cheat tool detected on this machine. The cheat was closed by AntiCheat and your game will continue.
+            </TextBlock>
+
+            <TextBlock x:Name="DetailsText" Margin="0,18,0,0" TextWrapping="Wrap" TextAlignment="Center"
+                       FontSize="12" Foreground="#99B8C8FF" />
+
+            <TextBlock x:Name="ReasonText" Margin="0,6,0,0" TextWrapping="Wrap" TextAlignment="Center"
+                       FontSize="12" Foreground="#99B8C8FF" />
+
+            <Button x:Name="CloseBtn" Margin="0,24,0,0" Height="44" Click="CloseClicked"
+                    Background="#FFE53935" Foreground="White" FontWeight="SemiBold" FontSize="14"
+                    BorderThickness="0" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="BtnBorder" Background="{TemplateBinding Background}" CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BtnBorder" Property="Background" Value="#FFFF5252" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                Close
+            </Button>
+        </StackPanel>
+    </Border>
+</ui:FluentWindow>

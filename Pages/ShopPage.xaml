@@ -1,0 +1,96 @@
+<Page x:Class="SusanooLauncher.Pages.ShopPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      Background="Transparent">
+
+    <Page.Resources>
+        <Style x:Key="ShopTabStyle" TargetType="ToggleButton">
+            <Setter Property="Foreground" Value="#CCFFFFFF" />
+            <Setter Property="Background" Value="#FF1A1F2E" />
+            <Setter Property="Padding" Value="14,9" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="10" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#FF252B3D" />
+                                <Setter Property="Foreground" Value="#FFFFFFFF" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#FF2A3145" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="28,22,28,22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Item Shop" FontSize="26" FontWeight="SemiBold" Foreground="#F2FFFFFF" />
+            <TextBlock Margin="0,6,0,0" Foreground="#99FFFFFF" FontSize="13"
+                       Text="Cosmetics currently in the daily and featured storefront." />
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                <TextBlock x:Name="ResetTimerText" Foreground="#FF8EC5FF" FontSize="12" />
+                <TextBlock Text="  •  " Foreground="#66FFFFFF" FontSize="12" />
+                <TextBlock x:Name="BalanceText" Foreground="#CCFFFFFF" FontSize="12" Text="V-Bucks: …" />
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,12,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="160" />
+            </Grid.ColumnDefinitions>
+            <ui:TextBox x:Name="SearchBox" PlaceholderText="Search cosmetics..." Height="36" TextChanged="SearchChanged" />
+            <ComboBox x:Name="SortCombo" Grid.Column="1" Margin="10,0,0,0" Height="36" SelectionChanged="SortChanged">
+                <ComboBoxItem Content="Sort: Default" IsSelected="True" />
+                <ComboBoxItem Content="Price: Low to High" />
+                <ComboBoxItem Content="Price: High to Low" />
+                <ComboBoxItem Content="Name: A-Z" />
+            </ComboBox>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,14">
+            <ToggleButton x:Name="TabDaily" Click="TabDailyClicked" IsChecked="True" Style="{StaticResource ShopTabStyle}">
+                <TextBlock Text="Daily" />
+            </ToggleButton>
+            <ToggleButton x:Name="TabFeatured" Click="TabFeaturedClicked" Style="{StaticResource ShopTabStyle}">
+                <TextBlock Text="Featured" />
+            </ToggleButton>
+            <ui:Button Content="Refresh" Margin="8,0,0,0" Height="36" Click="RefreshClicked"
+                       Appearance="Secondary" Background="#FF2A3145" />
+        </StackPanel>
+
+        <Border Grid.Row="3" CornerRadius="16" Background="#22000000" ClipToBounds="True">
+            <Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="16">
+                    <WrapPanel x:Name="ShopItemsPanel" />
+                </ScrollViewer>
+
+                <TextBlock x:Name="LoadingText" Text="Loading item shop…"
+                           Foreground="#66FFFFFF" FontSize="14"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <TextBlock x:Name="ErrorText" Foreground="#FFFF8A8A" FontSize="13" TextWrapping="Wrap"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24"
+                           Visibility="Collapsed" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

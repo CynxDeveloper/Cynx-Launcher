@@ -1,0 +1,169 @@
+<Page x:Class="SusanooLauncher.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:SusanooLauncher.Controls"
+      mc:Ignorable="d"
+      Background="Transparent">
+
+    <Grid Margin="28,20,28,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Hero banner -->
+        <Border Grid.Row="0" CornerRadius="16" Height="200" ClipToBounds="True" Margin="0,0,0,16">
+            <Grid>
+                <Image Source="pack://application:,,,/Assets/Home/c2s2_1.png" Stretch="UniformToFill" />
+                <Border Background="#99000000" />
+                <Grid Margin="24,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:CircularSkinAvatar x:Name="HeroAvatar" Diameter="88"
+                                                 RingBrush="#55FFFFFF" RingThickness="2"
+                                                 VerticalAlignment="Center" />
+                    <StackPanel Grid.Column="1" Margin="22,0,0,0" VerticalAlignment="Center">
+                        <TextBlock FontSize="32" FontWeight="SemiBold" Foreground="#FFFFFFFF">
+                            <Run Text="What's up, " />
+                            <Run x:Name="WelcomeNameText" Text="Player" />
+                            <Run Text="!" />
+                        </TextBlock>
+                        <TextBlock x:Name="EquippedSkinText" Margin="0,6,0,0" FontSize="14" Foreground="#FF8EC5FF"
+                                   Text="Equipped: —" />
+                        <TextBlock Margin="0,8,0,0" FontSize="15" Foreground="#D9FFFFFF" TextWrapping="Wrap"
+                                   Text="Experience the best Chapter 3 Season 1 experience with Susanoo." />
+                        <TextBlock Margin="0,6,0,0" FontSize="13" Foreground="#99FFFFFF"
+                                   Text="CHAPTER 3 • SEASON 1" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Info cards -->
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="14" Background="#D91A1F2E" Padding="20" MinHeight="110">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="44" Height="44" CornerRadius="10" Background="#FF252B3D" VerticalAlignment="Center">
+                        <ui:SymbolIcon Symbol="ChatHelp24" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE8EAED" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="16,0,12,0" VerticalAlignment="Center">
+                        <TextBlock Text="Support" FontSize="17" FontWeight="SemiBold" Foreground="#FFFFFFFF" />
+                        <TextBlock Margin="0,4,0,0" TextWrapping="Wrap" Foreground="#99FFFFFF" FontSize="13"
+                                   Text="Need help? Join the Susanoo Support Discord Server." />
+                    </StackPanel>
+                    <ui:Button Grid.Column="2" Content="View" Click="OpenDiscordClicked" Height="36" MinWidth="72" VerticalAlignment="Center"
+                               Appearance="Secondary" Background="#FF2A3145" />
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="2" CornerRadius="14" Background="#D91A1F2E" Padding="20" MinHeight="110">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="44" Height="44" CornerRadius="10" Background="#FF252B3D" VerticalAlignment="Center">
+                        <ui:SymbolIcon Symbol="Globe24" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE8EAED" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="16,0,12,0" VerticalAlignment="Center">
+                        <TextBlock Text="Server" FontSize="17" FontWeight="SemiBold" Foreground="#FFFFFFFF" />
+                        <TextBlock Margin="0,4,0,0" TextWrapping="Wrap" Foreground="#99FFFFFF" FontSize="13"
+                                   Text="See who's online and join the community." />
+                        <TextBlock x:Name="OnlineCountText" Margin="0,6,0,0" Foreground="#CCFFFFFF" FontSize="13" Text="Loading..." />
+                    </StackPanel>
+                    <ui:Button Grid.Column="2" Content="Refresh" Click="RefreshOnlineClicked" Height="36" MinWidth="72" VerticalAlignment="Center"
+                               Appearance="Secondary" Background="#FF2A3145" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- News + coming soon (backend) -->
+        <Grid Grid.Row="2" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="14" Background="#D91A1F2E" Padding="18" MinHeight="200">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                        <ui:SymbolIcon Symbol="News24" FontSize="18" Foreground="#FFE8EAED" VerticalAlignment="Center" />
+                        <TextBlock Margin="10,0,0,0" Text="News" FontSize="17" FontWeight="SemiBold" Foreground="#FFFFFFFF" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="220">
+                        <StackPanel x:Name="NewsPanel" />
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="2" CornerRadius="14" Background="#D91A1F2E" Padding="18" MinHeight="200">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                        <ui:SymbolIcon Symbol="Rocket24" FontSize="18" Foreground="#FFE8EAED" VerticalAlignment="Center" />
+                        <TextBlock Margin="10,0,0,0" Text="Soon" FontSize="17" FontWeight="SemiBold" Foreground="#FFFFFFFF" VerticalAlignment="Center" />
+                        <TextBlock Margin="8,0,0,0" Text="Features" FontSize="17" FontWeight="SemiBold" Foreground="#99FFFFFF" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="220">
+                        <StackPanel x:Name="UpcomingPanel" />
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Build folder hint -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock VerticalAlignment="Center" Foreground="#66FFFFFF" FontSize="12" Text="Build folder:" />
+            <TextBlock x:Name="PathText" Margin="8,0,12,0" VerticalAlignment="Center" Foreground="#CCFFFFFF" FontSize="12"
+                       TextTrimming="CharacterEllipsis" MaxWidth="620" />
+            <ui:Button Content="Change" Click="SelectFolderClicked" Height="28" Padding="12,0"
+                       Appearance="Secondary" Background="#D91A1F2E" FontSize="12" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="4" x:Name="StatusText" Margin="0,0,0,8" Foreground="#88FFFFFF" FontSize="12" Text="Ready" />
+
+        <!-- Launch bar -->
+        <Border Grid.Row="5" CornerRadius="14" Background="#D91A1F2E" Height="56" Cursor="Hand" MouseLeftButtonUp="LaunchBarClicked">
+            <Grid Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ui:SymbolIcon Symbol="Play24" FontSize="20" VerticalAlignment="Center" Foreground="#FFFFFFFF" />
+                <TextBlock Grid.Column="1" Margin="14,0,0,0" Text="Launch Fortnite" FontSize="16" FontWeight="SemiBold"
+                           Foreground="#FFFFFFFF" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

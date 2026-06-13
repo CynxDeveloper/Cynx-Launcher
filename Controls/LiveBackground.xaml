@@ -1,0 +1,9 @@
+<UserControl x:Class="SusanooLauncher.Controls.LiveBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             IsHitTestVisible="False"
+             Background="#FF0F1118">
+    <Canvas x:Name="ParticleCanvas" ClipToBounds="True" />
+</UserControl>

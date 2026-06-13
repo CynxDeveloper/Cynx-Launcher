@@ -1,0 +1,48 @@
+<UserControl x:Class="SusanooLauncher.Controls.SyncOverlay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:SusanooLauncher.Controls"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             Background="#FF0F1118"
+             Visibility="Collapsed">
+
+    <Grid>
+        <StackPanel x:Name="SyncPanel" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <controls:CircularSkinAvatar x:Name="SyncAvatar" Diameter="120"
+                                         RingBrush="#33FFFFFF" RingThickness="1"
+                                         HorizontalAlignment="Center" />
+
+            <TextBlock Margin="0,28,0,0" Text="Syncing" FontSize="28" FontWeight="SemiBold"
+                       Foreground="#E6FFFFFF" HorizontalAlignment="Center" />
+
+            <TextBlock Margin="0,8,0,0" Text="Updating your data..." FontSize="15"
+                       Foreground="#99FFFFFF" HorizontalAlignment="Center" />
+
+            <Grid Margin="0,32,0,0" Width="44" Height="44" HorizontalAlignment="Center">
+                <Ellipse Width="44" Height="44" Stroke="#33FFFFFF" StrokeThickness="3" />
+                <Ellipse x:Name="SpinnerArc" Width="44" Height="44" Stroke="#FFFFFFFF" StrokeThickness="3"
+                         StrokeDashArray="8 60" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="SpinnerRotate" Angle="0" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel x:Name="WelcomePanel" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0">
+            <controls:CircularSkinAvatar x:Name="WelcomeAvatar" Diameter="120"
+                                         RingBrush="#33FFFFFF" RingThickness="1"
+                                         HorizontalAlignment="Center" />
+
+            <TextBlock Margin="0,28,0,0" Text="Welcome Back" FontSize="28" FontWeight="SemiBold"
+                       Foreground="#E6FFFFFF" HorizontalAlignment="Center" />
+
+            <TextBlock x:Name="WelcomeNameText" Margin="0,6,0,0" FontSize="22" FontWeight="Medium"
+                       Foreground="#CCFFFFFF" HorizontalAlignment="Center" Text="Player" />
+
+            <TextBlock x:Name="WelcomeSkinText" Margin="0,4,0,0" FontSize="14"
+                       Foreground="#99FFFFFF" HorizontalAlignment="Center" Text="" />
+        </StackPanel>
+    </Grid>
+</UserControl>
